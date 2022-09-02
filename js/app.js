@@ -11,12 +11,11 @@ const winArrays = [ [0,1,2],
                     [2,4,6]
                   ]
 
-
 /*---------------------------- Variables (state) ----------------------------*/
-let board = [null,null,null,null,null,null,null,null,null]
-let player = 1
+let board = undefined
+let player = undefined
 // -1 and 1 for player wins, 0 for draw
-let winner = null
+let winner = undefined
 
 /*------------------------ Cached Element References ------------------------*/
 const boardEle = document.getElementById('game-space')
@@ -29,6 +28,8 @@ boardEle.addEventListener('click',pickSquare)
 resetBtn.addEventListener('click',init)
 
 /*-------------------------------- Functions --------------------------------*/
+init()
+
 function init(){
   resetBtn.hidden = true
   board = [null,null,null,null,null,null,null,null,null]
@@ -38,7 +39,6 @@ function init(){
   renderMessage()
 }
 
-
 function pickSquare(evt){
   targetSquare = evt.target
   targetSquareIdx = parseInt(targetSquare.id.at(-1))
@@ -47,9 +47,6 @@ function pickSquare(evt){
     player *= -1
     render(targetSquareIdx)
   }
-
-
-  
 }
 
 function render(idx){
