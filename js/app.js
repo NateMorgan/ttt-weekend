@@ -19,9 +19,9 @@ let winner = undefined
 
 /*------------------------ Cached Element References ------------------------*/
 const boardEle = document.getElementById('game-space')
-const messageEle = document.getElementById('message')
+const messageEl = document.getElementById('message')
 const resetBtn = document.getElementById('reset-btn')
-const allDivs = document.querySelectorAll('.square')
+const squareEls = document.querySelectorAll('.square')
 
 /*----------------------------- Event Listeners -----------------------------*/
 boardEle.addEventListener('click',pickSquare)
@@ -35,7 +35,7 @@ function init(){
   board = [null,null,null,null,null,null,null,null,null]
   player = 1
   winner = null
-  allDivs.forEach( (ele) => ele.innerText = '')
+  squareEls.forEach( (ele) => ele.innerText = '')
   renderMessage()
 }
 
@@ -58,11 +58,11 @@ function render(idx){
 
 function renderMessage(){
   if (winner === null){
-    messageEle.innerText = `Player ${(player > 0) ? 1:2} pick your square`
+    messageEl.innerText = `Player ${(player > 0) ? 1:2} pick your square`
   } else if (winner !== 0){
-    messageEle.textContent = `GAMEOVER: PLAYER ${winner} WON`
+    messageEl.textContent = `GAMEOVER: PLAYER ${(winner> 0) ? 1:2} WON`
   } else {
-    messageEle.textContent = `GAMEOVER: DRAW`
+    messageEl.textContent = `GAMEOVER: DRAW`
   }
 }
 
