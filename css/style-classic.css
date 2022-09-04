@@ -9,6 +9,7 @@ body {
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  color: white;
 }
 
 section.board {
@@ -18,11 +19,38 @@ section.board {
   grid-gap: 0vmin;
 }
 
+button {
+  margin: 20px;
+}
+
 .square {
-  border: 3px solid black;
+  border: 3px solid white;
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
 }
 
-
+#sq0 {
+ border-width: 0 3px 3px 0px;
+}
+#sq1 {
+  border-width: 0 3px 3px 3px;
+ }
+ #sq2 {
+  border-width: 0 0 3px 3px;
+ }
+ #sq3 {
+  border-width: 3px 3px 3px 0;
+ }
+ #sq5 {
+  border-width: 3px 0 3px 3px;
+ }
+ #sq6 {
+  border-width: 3px 3px 0 0;
+ }
+ #sq7 {
+  border-width: 3px 3px 0 3px;
+ }
+ #sq8 {
+  border-width: 3px 0 0 3px;
+ }
