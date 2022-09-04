@@ -72,7 +72,6 @@ function pickSquare(evt){
     player *= -1
     render(targetSquareIdx)
     if (agent && winner == null){
-      console.log(board)
       player *= -1
       render(randomAgent(board,-1*player))
     }
