@@ -16,6 +16,7 @@ let board = undefined
 let player = undefined
 // -1 and 1 for player wins, 0 for draw
 let winner = undefined
+let agent = false
 
 /*------------------------ Cached Element References ------------------------*/
 const boardEle = document.getElementById('game-space')
@@ -46,6 +47,13 @@ function pickSquare(evt){
     board[targetSquareIdx] = player
     player *= -1
     render(targetSquareIdx)
+    console.log(agent)
+    if (agent){
+      console.log(board)
+      player *= -1
+      render(randomAgent(board,-1*player))
+      console.log(board)
+    }
   }
 }
 
@@ -81,4 +89,22 @@ function checkResult(){
       winner = 0 
     }
   }
+}
+
+// All agent code below this point 
+function findValidMoves(board){
+  let validMoves = []
+  board.forEach(function(space, idx) {
+    if (!space){
+      validMoves.push(idx)
+    }
+  });
+  return validMoves
+}
+
+function randomAgent(board,playerId){
+  let validMoves = findValidMoves(board)
+  let moveIdx = validMoves[Math.floor(Math.random()*validMoves.length)]
+  board[moveIdx] = playerId
+  return moveIdx
 }
