@@ -16,28 +16,58 @@ let board = undefined
 let player = undefined
 // -1 and 1 for player wins, 0 for draw
 let winner = undefined
-let agent = false
+let agent = null
 
 /*------------------------ Cached Element References ------------------------*/
 const boardEle = document.getElementById('game-space')
 const messageEl = document.getElementById('message')
 const resetBtn = document.getElementById('reset-btn')
 const squareEls = document.querySelectorAll('.square')
+const oppSelector = document.getElementById('opponent-selector')
+// const humanOppBtn = document.getElementById(`human`)
+// const randomOppBtn = document.getElementById(`random`)
+
+
 
 /*----------------------------- Event Listeners -----------------------------*/
-boardEle.addEventListener('click',pickSquare)
 resetBtn.addEventListener('click',init)
+boardEle.addEventListener('click',pickSquare)
+oppSelector.addEventListener('click',enterGame)
+// humanOppBtn.addEventListener('click',enterGame)
+// randomOppBtn.addEventListener('click',enterGame)
+
+
 
 /*-------------------------------- Functions --------------------------------*/
+
+
 init()
 
 function init(){
   resetBtn.hidden = true
+  boardEle.hidden = true
+  oppSelector.hidden = false
   board = [null,null,null,null,null,null,null,null,null]
   player = 1
   winner = null
+  agent = null
   squareEls.forEach( (ele) => ele.innerText = '')
   renderMessage()
+}
+
+function enterGame(evt){
+  if (evt.target.id !== `opponent-selector`){
+    if (evt.target.id === `human`){
+      agent = false
+    } else {
+      agent = true
+    }
+    
+    oppSelector.hidden = true
+    boardEle.hidden = false
+
+    renderMessage()
+  }
 }
 
 function pickSquare(evt){
@@ -47,8 +77,7 @@ function pickSquare(evt){
     board[targetSquareIdx] = player
     player *= -1
     render(targetSquareIdx)
-    console.log(agent)
-    if (agent){
+    if (agent && winner == null){
       console.log(board)
       player *= -1
       render(randomAgent(board,-1*player))
@@ -65,7 +94,9 @@ function render(idx){
 }
 
 function renderMessage(){
-  if (winner === null){
+  if (agent === null){
+    messageEl.innerText = `Choose your Opponent`
+  } else if (winner === null){
     messageEl.innerText = `Player ${(player > 0) ? 1:2} pick your square`
   } else if (winner !== 0){
     messageEl.textContent = `GAMEOVER: PLAYER ${(winner> 0) ? 1:2} WON`

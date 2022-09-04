@@ -13,9 +13,15 @@
 </head>
 <body>
 	<h1>Tic-Tac-Toe</h1>
-	<h2 id="message">Player 1 pick your square</h2>
+	<h2 id="message">Choose your Opponent</h2>
 
-	<section id="game-space" class="board">
+	<div id="opponent-selector">
+		<button id="human" class="btn btn-primary">Human</button>
+		<button id="random" class="btn btn-secondary">Random</button>
+	</div>
+
+	
+	<section id="game-space" class="board" hidden>
 		<div id="sq0" class="square"></div>
 		<div id="sq1" class="square"></div>
 		<div id="sq2" class="square"></div>
