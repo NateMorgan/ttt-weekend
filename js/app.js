@@ -24,18 +24,12 @@ const messageEl = document.getElementById('message')
 const resetBtn = document.getElementById('reset-btn')
 const squareEls = document.querySelectorAll('.square')
 const oppSelector = document.getElementById('opponent-selector')
-// const humanOppBtn = document.getElementById(`human`)
-// const randomOppBtn = document.getElementById(`random`)
-
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 resetBtn.addEventListener('click',init)
 boardEle.addEventListener('click',pickSquare)
 oppSelector.addEventListener('click',enterGame)
-// humanOppBtn.addEventListener('click',enterGame)
-// randomOppBtn.addEventListener('click',enterGame)
-
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -81,7 +75,6 @@ function pickSquare(evt){
       console.log(board)
       player *= -1
       render(randomAgent(board,-1*player))
-      console.log(board)
     }
   }
 }
