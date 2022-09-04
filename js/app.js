@@ -131,3 +131,4 @@ function randomAgent(board,playerId){
   board[moveIdx] = playerId
   return moveIdx
 }
+// TODO change reset button bootstrap class depending on stylesheet light to dark for classic to GA
