@@ -104,9 +104,9 @@ function renderMessage(){
 function renderTokens(){
   board.forEach(function (token,idx){
     if (token){
-      squareEls[idx].innerText = (token > 0) ? playerOne : playerTwo
+      squareEls[idx].innerHTML = (token > 0) ? playerOne : playerTwo
     } else {
-      squareEls[idx].innerText = ""
+      squareEls[idx].innerHTML = ""
     }
   })
 }
@@ -125,14 +125,14 @@ function checkResult(){
 
 function styleChange(){
   if (styleToggle.textContent !== "Classic"){
-    styleToggle.textContent = "Classic"
+    styleToggle.innerText = "Classic"
     myCSS.setAttribute('href', 'css/style-ga.css')
     resetBtn.className = "btn btn-dark"
-    playerOne = "B"
-    playerTwo = "H"
+    playerOne = '<img src="img/ben.png">'
+    playerTwo = '<img src="img/badhorse.png">'
     // console.log("I'm now GA")
   } else {
-    styleToggle.textContent = "GA"
+    styleToggle.innerHTML = `<img id="ga-logo" src="img/ga-logo.png">`
     myCSS.setAttribute('href', 'css/style-classic.css')
     resetBtn.className = "btn btn-light"
     playerOne = "X"

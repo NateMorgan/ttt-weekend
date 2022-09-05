@@ -32,6 +32,11 @@ button {
   justify-content: center;
 }
 
+.square>img {
+  width:9vmin;
+}
+
+
 #style-toggle {
   font-family: SqueakyChalkSound;
   position: absolute;

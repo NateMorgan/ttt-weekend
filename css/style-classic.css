@@ -43,10 +43,12 @@ button {
   font-family: SqueakyChalkSound;
   position: absolute;
   top: 10px;
-  right: 10px;
-  border: 1px solid white;
-  padding: 10px;
-  border-radius: 50%;
+  right: 15px;
+}
+
+#ga-logo {
+  width: 50px;
+  height: 50px;
 }
 
 #sq0 {
