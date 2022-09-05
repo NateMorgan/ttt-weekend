@@ -24,13 +24,15 @@ const messageEl = document.getElementById('message')
 const resetBtn = document.getElementById('reset-btn')
 const squareEls = document.querySelectorAll('.square')
 const oppSelector = document.getElementById('opponent-selector')
+const myCSS = document.getElementById('my-css')
+const styleToggle = document.getElementById('style-toggle')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 resetBtn.addEventListener('click',init)
 boardEle.addEventListener('click',pickSquare)
 oppSelector.addEventListener('click',enterGame)
-
+styleToggle.addEventListener('click',styleChange)
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -114,4 +116,17 @@ function checkResult(){
   }
 }
 
-// TODO change reset button bootstrap class depending on stylesheet light to dark for classic to GA
+function styleChange(){
+  console.log(myCSS)
+  if (styleToggle.textContent !== "Classic"){
+    styleToggle.textContent = "Classic"
+    myCSS.setAttribute('href', 'css/style-ga.css')
+    resetBtn.className = "btn btn-dark"
+    // console.log("I'm now GA")
+  } else {
+    styleToggle.textContent = "GA"
+    myCSS.setAttribute('href', 'css/style-classic.css')
+    resetBtn.className = "btn btn-light"
+    // console.log("I'm now Classic")
+  }
+}
