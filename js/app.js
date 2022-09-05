@@ -1,15 +1,13 @@
 /*-------------------------------- Constants --------------------------------*/
-const playerOne = "X"
-const playerTwo = "O"
 const winArrays = [ [0,1,2],
-                    [3,4,5],
-                    [6,7,8],
-                    [0,3,6],
-                    [1,4,7],
-                    [2,5,8],
-                    [0,4,8],
-                    [2,4,6]
-                  ]
+[3,4,5],
+[6,7,8],
+[0,3,6],
+[1,4,7],
+[2,5,8],
+[0,4,8],
+[2,4,6]
+]
 
 /*---------------------------- Variables (state) ----------------------------*/
 let board = undefined
@@ -18,6 +16,8 @@ let player = undefined
 let winner = undefined
 let agent = null
 
+let playerOne = "X"
+let playerTwo = "O"
 /*------------------------ Cached Element References ------------------------*/
 const boardEle = document.getElementById('game-space')
 const messageEl = document.getElementById('message')
@@ -99,10 +99,10 @@ function renderMessage(){
   }
 }
 
-function renderTokens(idx){
+function renderTokens(){
   board.forEach(function (token,idx){
     if (token){
-      squareEls[idx].innerText = (-1* player > 0) ? playerOne : playerTwo
+      squareEls[idx].innerText = (token > 0) ? playerOne : playerTwo
     } else {
       squareEls[idx].innerText = ""
     }
@@ -126,6 +126,8 @@ function styleChange(){
     styleToggle.textContent = "Classic"
     myCSS.setAttribute('href', 'css/style-ga.css')
     resetBtn.className = "btn btn-dark"
+    const playerOne = "X"
+const playerTwo = "O"
     // console.log("I'm now GA")
   } else {
     styleToggle.textContent = "GA"
