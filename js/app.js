@@ -47,7 +47,7 @@ function init(){
   player = 1
   winner = null
   agent = null
-  squareEls.forEach( (ele) => ele.innerText = '')
+  renderTokens()
   renderMessage()
 }
 
@@ -80,9 +80,9 @@ function pickSquare(evt){
   }
 }
 
-function render(idx){
+function render(){
   resetBtn.hidden = false
-  renderTokens(idx)
+  renderTokens()
   checkResult()
   renderMessage()
 }
@@ -100,8 +100,13 @@ function renderMessage(){
 }
 
 function renderTokens(idx){
-  renderSquare = document.getElementById(`sq${idx}`)
-  renderSquare.innerText = (-1* player > 0) ? playerOne : playerTwo
+  board.forEach(function (token,idx){
+    if (token){
+      squareEls[idx].innerText = (-1* player > 0) ? playerOne : playerTwo
+    } else {
+      squareEls[idx].innerText = ""
+    }
+  })
 }
 
 function checkResult(){
@@ -117,7 +122,6 @@ function checkResult(){
 }
 
 function styleChange(){
-  console.log(myCSS)
   if (styleToggle.textContent !== "Classic"){
     styleToggle.textContent = "Classic"
     myCSS.setAttribute('href', 'css/style-ga.css')
@@ -129,4 +133,5 @@ function styleChange(){
     resetBtn.className = "btn btn-light"
     // console.log("I'm now Classic")
   }
+  render()
 }
