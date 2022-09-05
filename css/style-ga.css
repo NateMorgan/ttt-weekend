@@ -27,12 +27,25 @@ button {
 .square {
   border: 3px solid #222;
   font-size: 8vmin;
-  text-align: center;
-  vertical-align: middle;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#style-toggle {
+  font-family: SqueakyChalkSound;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 50%;
+
 }
 
 #sq0 {
  border-width: 0 3px 3px 0px;
+ 
 }
 #sq1 {
   border-width: 0 3px 3px 3px;
