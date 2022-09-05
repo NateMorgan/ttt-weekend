@@ -81,7 +81,9 @@ function pickSquare(evt){
 }
 
 function render(){
-  resetBtn.hidden = false
+  if (!(board.every( spot => spot === null))){
+    resetBtn.hidden = false
+  }
   renderTokens()
   checkResult()
   renderMessage()
@@ -126,13 +128,15 @@ function styleChange(){
     styleToggle.textContent = "Classic"
     myCSS.setAttribute('href', 'css/style-ga.css')
     resetBtn.className = "btn btn-dark"
-    const playerOne = "X"
-const playerTwo = "O"
+    playerOne = "B"
+    playerTwo = "H"
     // console.log("I'm now GA")
   } else {
     styleToggle.textContent = "GA"
     myCSS.setAttribute('href', 'css/style-classic.css')
     resetBtn.className = "btn btn-light"
+    playerOne = "X"
+    playerTwo = "O"
     // console.log("I'm now Classic")
   }
   render()
