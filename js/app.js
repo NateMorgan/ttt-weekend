@@ -1,4 +1,8 @@
 /*-------------------------------- Constants --------------------------------*/
+const benWinAudio = new Audio("../audio/ben-win.mp3")
+const horseWinAudio = new Audio("../audio/bad-horse-win.mp3")
+const benPlaysAudio = new Audio("../audio/ben-plays.mp3")
+const horsePlaysAudio = new Audio("../audio/horse-play.mp3")
 const winArrays = [ [0,1,2],
 [3,4,5],
 [6,7,8],
@@ -49,6 +53,10 @@ function init(){
   agent = null
   renderTokens()
   renderMessage()
+  horseWinAudio.volume = .2
+  benWinAudio.volume = .2
+  horsePlayAudio.volume = .2
+  benPlayAudio.volume = .2
 }
 
 function enterGame(evt){
@@ -77,6 +85,9 @@ function pickSquare(evt){
       player *= -1
       render(randomAgent(board,-1*player))
     }
+    if (!agent && styleToggle.textContent === "Classic" &&!winner){
+      player < 0 ? benPlaysAudio.play() : horsePlaysAudio.play()
+    }
   }
 }
 
@@ -96,6 +107,9 @@ function renderMessage(){
     messageEl.innerText = `Player ${(player > 0) ? 1:2} pick your square`
   } else if (winner !== 0){
     messageEl.textContent = `GAMEOVER: PLAYER ${(winner> 0) ? 1:2} WON`
+    if (styleToggle.textContent === "Classic"){
+      winner > 0 ? benWinAudio.play() : horseWinAudio.play()
+    }
   } else {
     messageEl.textContent = `GAMEOVER: DRAW`
   }
