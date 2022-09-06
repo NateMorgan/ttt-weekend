@@ -1,8 +1,8 @@
 /*-------------------------------- Constants --------------------------------*/
-const benWinAudio = new Audio("../audio/ben-win.mp3")
-const horseWinAudio = new Audio("../audio/bad-horse-win.mp3")
-const benPlaysAudio = new Audio("../audio/ben-plays.mp3")
-const horsePlaysAudio = new Audio("../audio/horse-play.mp3")
+const benWinAudio = new Audio("./audio/ben-win.mp3")
+const horseWinAudio = new Audio("./audio/bad-horse-win.mp3")
+const benPlaysAudio = new Audio("./audio/ben-plays.mp3")
+const horsePlaysAudio = new Audio("./audio/horse-play.mp3")
 const winArrays = [ [0,1,2],
 [3,4,5],
 [6,7,8],
