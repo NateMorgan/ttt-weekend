@@ -55,8 +55,8 @@ function init(){
   renderMessage()
   horseWinAudio.volume = .2
   benWinAudio.volume = .2
-  horsePlayAudio.volume = .2
-  benPlayAudio.volume = .2
+  horsePlaysAudio.volume = .2
+  benPlaysAudio.volume = .2
 }
 
 function enterGame(evt){
@@ -142,11 +142,11 @@ function styleChange(){
     styleToggle.innerText = "Classic"
     myCSS.setAttribute('href', 'css/style-ga.css')
     resetBtn.className = "btn btn-dark"
-    playerOne = '<img src="img/ben.png">'
-    playerTwo = '<img src="img/badhorse.png">'
+    playerOne = '<img src="./img/ben.png">'
+    playerTwo = '<img src="./img/badhorse.png">'
     // console.log("I'm now GA")
   } else {
-    styleToggle.innerHTML = `<img id="ga-logo" src="img/ga-logo.png">`
+    styleToggle.innerHTML = `<img id="ga-logo" src="./img/ga-logo.png">`
     myCSS.setAttribute('href', 'css/style-classic.css')
     resetBtn.className = "btn btn-light"
     playerOne = "X"
