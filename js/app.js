@@ -51,8 +51,7 @@ function init(){
   player = 1
   winner = null
   agent = null
-  renderTokens()
-  renderMessage()
+  render()
   horseWinAudio.volume = .2
   benWinAudio.volume = .2
   horsePlaysAudio.volume = .2
@@ -80,7 +79,7 @@ function pickSquare(evt){
   if (board[targetSquareIdx] === null && winner === null){
     board[targetSquareIdx] = player
     player *= -1
-    render(targetSquareIdx)
+    render()
     if (agent && winner == null){
       player *= -1
       render(randomAgent(board,-1*player))
