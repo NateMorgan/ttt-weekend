@@ -22,6 +22,8 @@ let agent = null
 
 let playerOne = "X"
 let playerTwo = "O"
+
+
 /*------------------------ Cached Element References ------------------------*/
 const boardEle = document.getElementById('game-space')
 const messageEl = document.getElementById('message')
@@ -39,7 +41,6 @@ oppSelector.addEventListener('click',enterGame)
 styleToggle.addEventListener('click',styleChange)
 
 /*-------------------------------- Functions --------------------------------*/
-
 
 init()
 
